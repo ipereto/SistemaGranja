@@ -5,5 +5,5 @@ from .models import Granja
 #admin.site.register(Granja)
 @admin.register(Granja)
 class AdminGranja(admin.ModelAdmin):
-    list_display = ('id','id_granja','nombre','altitud',)
+    list_display = ('id_granja','nombre','altitud',)
     list_filter = ('nombre',)

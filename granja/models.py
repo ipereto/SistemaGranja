@@ -16,6 +16,9 @@ class Granja(models.Model):
     humedad_relativa = models.DecimalField(max_digits=6,decimal_places=2)
     temp_prom = models.DecimalField(max_digits=6,decimal_places=2)
     mapa = models.ImageField(blank=True)
-    
+
     def __str__(self):
-        return self.nombre
+        return self.id_granja
+
+    class Meta:
+        ordering = ('id', )
