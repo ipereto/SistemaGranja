@@ -31,9 +31,9 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
-    'granja.apps.GranjaConfig',
-    'potrero.apps.PotreroConfig',
-    'bovino.apps.BovinoConfig',
+    #'granja.apps.GranjaConfig',
+    #'potrero.apps.PotreroConfig',
+    #'bovino.apps.BovinoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
