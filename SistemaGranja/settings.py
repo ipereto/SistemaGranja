@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'granja.apps.GranjaConfig',
     'potrero.apps.PotreroConfig',
+    'bovino.apps.BovinoConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'SistemaGranja.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'granjabd',
+        'USER': 'granjero',
+        'PASSWORD': 'Granjero@123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 

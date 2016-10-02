@@ -1,20 +1,15 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render,get_object_or_404
 from django.template import loader
+
+# Class-Based views
+from django.views.generic import ListView
+
 from .forms import GranjaForm
 
 from .models import Granja
 
 # Create your views here.
-def hello_world(request):
-    #return HttpResponse('Hello world!')
-    #return render(request, 'index.html')
-    granja = Granja.objects.order_by('id')
-    template = loader.get_template('index.html')
-    context = {
-    'granja' : granja
-    }
-    return HttpResponse(template.render(context, request))
 
 def granja_detail(request, pk):
     granja = get_object_or_404(Granja, pk=pk)
@@ -40,3 +35,6 @@ def new_granja(request):
         'form' : form
     }
     return HttpResponse(template.render(context, request))
+
+class ListarGranja(ListView):
+    model = Granja
