@@ -8,7 +8,7 @@ class EstadoGranja(models.Model):
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.id_estado
+        return self.nombre
 
     class Meta:
         ordering = ('id_estado', )
