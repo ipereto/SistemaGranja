@@ -8,7 +8,7 @@ class Municipio(models.Model):
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.id_municipio
+        return self.nombre
 
     class Meta:
         ordering = ('id_municipio', )
