@@ -22,7 +22,7 @@ class Granja(models.Model):
     mapa = models.ImageField(blank=True)
 
     def __str__(self):
-        return self.id_granja
+        return self.nombre
 
     class Meta:
         ordering = ('id_granja', )

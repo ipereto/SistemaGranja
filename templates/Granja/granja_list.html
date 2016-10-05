@@ -8,13 +8,18 @@
   </head>
   <body>
     <h1 style="color:green">
-      Hello World!
+      Sistema de Granjas
+      {% if user.is_authenticated %}
+        <h3>{{ user.username }} | <a href="{% url "usuario:salir" %}">Cerrar sesión</a></h3>
+      {% else %}
+        <a href="{% url "usuario:autenticar" %}">Iniciar Sesión</a>
+      {% endif %}
     </h1>
     <a href="{% url "granjas:new" %}">Nueva granja</a>
     <ul>
       {% for gr in object_list %}
       <li>
-        <a href="{% url "granjas:detail" gr.id %}">
+        <a href="{% url "granjas:detail" gr.id_granja %}">
           {{ gr.nombre }}
         </a>
         <img src="{{ gr.mapa.url }}" alt="">

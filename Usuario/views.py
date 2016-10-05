@@ -17,7 +17,7 @@ def autenticar(request):
             login(request, user)
         return redirect('/')
 
-    return render(request, 'login.html', {})
+    return render(request, 'login/login.html', {})
 
 def hello(request):
     return render(request,'hello.html',{})
