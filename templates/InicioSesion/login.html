@@ -5,6 +5,7 @@
   <title>Login</title>
 </head>
 <body>
+  {% if not user.is_authenticated %}
   <form method="post" action="">
     {% csrf_token %}
     <table>
@@ -25,6 +26,8 @@
           </tr>
         {% endif %}
       {% endfor %}
+      
+      {% endif %}
         <tr>
           <td colspan="2" align='center'>
             <button type="submit">Login</button>

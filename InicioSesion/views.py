@@ -8,13 +8,13 @@ from django.views.generic import FormView
 class InicioSesionView(FormView):
     form_class = InicioSesionForm
     template_name = 'InicioSesion/login.html'
-    success_url = '/inicio/'
+    success_url = '/principal/'
     def form_valid(self, form):
         login(self.request, form.user_cache)
         return super(InicioSesionView, self).form_valid(form)
 
-def hello(request):
-    return render(request,'hello.html',{})
+def principal(request):
+    return render(request,'principal/principal.html',{})
 
 #def autenticar(request):
     #return render(request, 'hello.html', {})

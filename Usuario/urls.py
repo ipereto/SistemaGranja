@@ -1,9 +1,10 @@
-# from django.conf.urls import url
-# from . import views
-# from django.contrib.auth import views as auth_views
-#
-# urlpatterns = [
-#     #url(r'^', views.autenticar, name='autenticar'),
-#     #url(r'^salir/$', auth_views.logout, {'next_page':'/'}, name='salir'),
-#     #url(r'^', views.hello, name='hello'),
-# ]
+from django.conf.urls import url
+from . import views
+
+urlpatterns = [
+    url(r'^editar/$', views.EditarUsuario.as_view(), name='editar'),
+    url(r'^nuevo/$', views.CrearUsuario.as_view(), name='nuevo'),
+    url(r'^buscar/$', views.BuscarUsuario.as_view(), name='buscar'),
+    url(r'^listar/$', views.ListarUsuarios.as_view(), name='listar'),
+    url(r'^', views.UsuarioView.as_view(), name='usuario'),
+]

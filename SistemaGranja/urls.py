@@ -20,6 +20,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('InicioSesion.urls',namespace='inicio')),
     url(r'^granja/', include('Granja.urls', namespace='granjas')),
+    url(r'^usuario/', include('Usuario.urls', namespace='usuarios')),
+    url(r'^', include('InicioSesion.urls',namespace='inicio')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
