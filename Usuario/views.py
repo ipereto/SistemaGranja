@@ -55,19 +55,13 @@ class UsuarioView(LoginRequiredMixin, TemplateView):
 
 class CrearUsuario(LoginRequiredMixin, CreateView):
     model = User
-    success_url = reverse_lazy('usuarios:usuario')
-    form_class = CreacionUsuarioForm
-    def form_valid(self, form):
-        self.object = form.save()
-        grup = form.cleaned_data['groups']
-        grupo = Group.objects.get(id=grup)
-        self.object.groups.add(grupo.id)
-        return super(CrearUsuario, self).form_valid(form)
+    success_url = reverse_lazy('usuarios:listar')
+    fields = ['username','password','first_name','last_name','email','groups','is_active','is_superuser']
 
 class ListarUsuarios(LoginRequiredMixin, ListView):
     model = User
-    template_name = 'user_list.html'
-    paginate_by = 5
+    # template_name = 'user_list.html'
+    # paginate_by = 5
 
 class EditarUsuario(LoginRequiredMixin, UpdateView):
     model = User
@@ -76,20 +70,19 @@ class EditarUsuario(LoginRequiredMixin, UpdateView):
 
 class BuscarUsuario(LoginRequiredMixin, JSONResponseMixin, DetailView):
     model = User
-    slug_field = 'nombre'
-    slug_url_kwarg = 'nombre'
-    def get(self, request, *args, **kwargs):
-        self.object = self.get_object()
-        return self.render_to_json_response()
-    def get_data(self):
-        data = {
-            'maquina':{
-                'id': self.object.id,
-                'nombre': self.object.nombre,
-                'descripcion': self.object.descripcion,
-                'unidad_medida': self.object.unidad_medida.nombre,
-                'capacidad': self.object.capacidad,
-                'tiempo': self.object.tiempo
-            }
-        }
-        return data
+    # slug_field = 'username'
+    # slug_url_kwarg = 'username'
+    # def get(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     return self.render_to_json_response()
+    # def get_data(self):
+    #     data = {
+    #         'usuario':{
+    #             'username': self.object.username,
+    #             'first_name': self.object.first_name,
+    #             'last_name': self.object.last_name,
+    #             'is_superuser': self.object.is_superuser,
+    #             'is_active': self.object.is_active
+    #         }
+    #     }
+    #     return data
