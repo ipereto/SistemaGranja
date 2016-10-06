@@ -14,9 +14,8 @@ from django.views.generic.edit import (
     DeleteView
 )
 
-
+from django.core.urlresolvers import reverse_lazy
 from .forms import GranjaForm
-
 from .models import Granja
 
 from Usuario.mixins import LoginRequiredMixin
@@ -41,7 +40,7 @@ from Usuario.mixins import LoginRequiredMixin
 #     }
 #     return HttpResponse(template.render(context, request))
 
-class CourseCreation(LoginRequiredMixin, CreateView):
+class CrearGranja(LoginRequiredMixin, CreateView):
     model = Granja
     success_url = reverse_lazy('granja:listar')
     form_class = GranjaForm
@@ -49,5 +48,9 @@ class CourseCreation(LoginRequiredMixin, CreateView):
 class ListarGranja(ListView):
     model = Granja
 
-class DetalleGranja(LoginRequiredMixin, DetailView):
+class ConsultarGranja(LoginRequiredMixin, DetailView):
     model = Granja
+
+class EliminarGranja(LoginRequiredMixin, DeleteView):
+    model = Granja
+    success_url = reverse_lazy('granja:listar')
