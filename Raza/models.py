@@ -12,4 +12,4 @@ class Raza(models.Model):
         verbose_name_plural = "Razas"
 
     def __unicode__(self):
-        return self.id_raza
+        return self.nombre
