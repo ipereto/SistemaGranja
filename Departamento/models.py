@@ -9,6 +9,9 @@ class Departamento(models.Model):
 
     def __str__(self):
         return self.nombre
+        
+    def __unicode__(self):
+        return self.nombre
 
     class Meta:
         ordering = ('id_departamento', )

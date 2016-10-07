@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Detaail</title>
+  </head>
+  <body>
+    <h1>{{ user.username }}</h1>
+<p>Nombre: <i>{{ user.first_name }}</i></p>
+<p>
+    <a href="{% url "usuarios:listar" %}">Regresar</a>
+</p>
+  </body>
+</html>

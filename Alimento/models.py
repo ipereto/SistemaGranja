@@ -9,7 +9,7 @@ class Alimento(models.Model):
     cantidad = models.DecimalField(max_digits=6,decimal_places=2)
 
     def __str__(self):
-        return self.id_alimento
+        return self.nombre
 
     class Meta:
         ordering = ('id_alimento', )

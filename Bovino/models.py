@@ -14,8 +14,8 @@ from datetime import datetime
 class Bovino(models.Model):
     id_bovino = models.CharField(primary_key=True, max_length=140)
     id_raza = models.OneToOneField(Raza, default=None)
-    id_padre = models.OneToOneField('self', related_name='id_padre_bovino', default=None)
-    id_madre = models.OneToOneField('self', related_name='id_madre_bovino', default=None)
+    id_padre = models.OneToOneField('self', related_name='id_padre_bovino', default=None, blank=True, null=True)
+    id_madre = models.OneToOneField('self', related_name='id_madre_bovino', default=None, blank=True, null=True)
     id_granja = models.OneToOneField(Granja,default=None)
     id_parto = models.OneToOneField(TipoParto,default=None)
     id_procedencia = models.OneToOneField(Procedencia,default=None)
@@ -25,12 +25,12 @@ class Bovino(models.Model):
     nombre = models.CharField(max_length=50,default=None)
     fecha_nacimiento = models.DateTimeField(verbose_name='Fecha de nacimiento',default=None)
     peso_nacimiento = models.DecimalField(max_digits=5,decimal_places=2,default=None)
-    fecha_destete = models.DateTimeField(verbose_name='Fecha de destete',default=None)
-    edad_primer_parto = models.IntegerField(verbose_name='Edad del primer parto',default=None)
+    fecha_destete = models.DateTimeField(verbose_name='Fecha de destete',default=None,blank=True,null=True)
+    edad_primer_parto = models.IntegerField(verbose_name='Edad del primer parto',default=None,blank=True,null=True)
     fechaEntrada = models.DateTimeField(verbose_name='Fecha de entrada', default=None)
-    fechaSalida = models.DateTimeField(verbose_name='Fecha de salida',default=None)
-    motivo_salida = models.TextField(max_length=140,default=None)
-    fecha_primer_servicio = models.DateTimeField(verbose_name='Fecha de primer servicio',default=None)
+    fechaSalida = models.DateTimeField(verbose_name='Fecha de salida',default=None, blank=True,null=True)
+    motivo_salida = models.TextField(max_length=140,default=None, blank=True,null=True)
+    fecha_primer_servicio = models.DateTimeField(verbose_name='Fecha de primer servicio',default=None, blank=True,null=True)
 
     def __str__(self):
         return self.id_bovino

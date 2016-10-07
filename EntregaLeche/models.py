@@ -15,7 +15,7 @@ class EntregaLeche(models.Model):
     id_granja = models.ForeignKey(Granja, related_name='id_entrega_granja')
 
     def __str__(self):
-        return self.id_ent_leche
+        return str(self.id_ent_leche)
 
     class Meta:
         ordering = ('id_ent_leche', )

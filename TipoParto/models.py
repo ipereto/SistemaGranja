@@ -8,7 +8,7 @@ class TipoParto(models.Model):
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.id_parto
+        return self.nombre
 
     class Meta:
         ordering = ('id_parto', )
