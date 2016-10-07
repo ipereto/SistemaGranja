@@ -7,7 +7,7 @@ from ProveedorSemen.models import ProveedorSemen
 # Create your models here.
 class SemenToro(models.Model):
 
-    id_semen_toro = models.AutoField(primary_key=True)
+    id_semen_toro = models.CharField(max_length=50,primary_key=True)
     id_raza = models.ForeignKey(Raza, related_name='id_semen_raza')
     edad = models.IntegerField()
     id_proveedor = models.ForeignKey(ProveedorSemen,related_name='id_semen_proveedor')

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'MantenimientoEspacio.apps.MantenimientoespacioConfig',
     'EstadoPalpacion.apps.EstadopalpacionConfig',
     'EstadoSanidad.apps.EstadosanidadConfig',
+    'EstadoReproduccion.apps.EstadoreproduccionConfig',
     'FactorialAjustado.apps.FactorialajustadoConfig',
     'Medicamento.apps.MedicamentoConfig',
     'EstadoGranja.apps.EstadogranjaConfig',
