@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -9,17 +10,17 @@ from EstadoReproduccion.models import EstadoReproduccion
 # Create your models here.
 class Reproduccion(models.Model):
     id_reproduccion = models.AutoField(primary_key=True)
-    id_bovino = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_bovino')
-    id_toro = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_toro',blank=True, default=None)
-    id_servicio = models.ForeignKey(Servicio, related_name='id_reproduccion_servicio')
-    id_cria = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_cria',blank=True, default=None)
-    id_semen_toro = models.ForeignKey(SemenToro, db_constraint=True, swappable=True, related_name='id_reproduccion_semen',blank=True, default=None)
-    fecha_servicio = models.DateTimeField()
-    proximoCelo = models.DateTimeField()
-    fechaPosibleParto = models.DateTimeField(blank=True)
-    fechaSecado = models.DateTimeField(blank=True)
-    cantCelosPosParto = models.IntegerField(default=None,blank=True)
-    id_estado = models.ForeignKey(EstadoReproduccion, related_name='id_reproduccion_estado',default=None)
+    id_bovino = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_bovino', verbose_name="Idenficación del bovino")
+    id_toro = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_toro',blank=True, default=None, verbose_name="Idenficación del toro")
+    id_servicio = models.ForeignKey(Servicio, related_name='id_reproduccion_servicio', verbose_name="Tipo de servicio")
+    id_cria = models.ForeignKey(Bovino, db_constraint=True, swappable=True, related_name='id_reproduccion_cria',blank=True, default=None, verbose_name="Idenficación de la cría")
+    id_semen_toro = models.ForeignKey(SemenToro, db_constraint=True, swappable=True, related_name='id_reproduccion_semen',blank=True, default=None, verbose_name="Idenficación del semen del toro")
+    fecha_servicio = models.DateTimeField(verbose_name="Fecha del servicio")
+    proximoCelo = models.DateTimeField(verbose_name="Idenficación del próximo celo")
+    fechaPosibleParto = models.DateTimeField(blank=True, verbose_name="Fecha del posible parto")
+    fechaSecado = models.DateTimeField(blank=True, verbose_name="Fecha de secado")
+    cantCelosPosParto = models.IntegerField(default=None,blank=True, verbose_name="Cantidad de celos posparto")
+    id_estado = models.ForeignKey(EstadoReproduccion, related_name='id_reproduccion_estado',default=None, verbose_name="Estado de la reproducción")
 
     def __str__(self):
         return str(self.id_reproduccion)

@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     'Usuario.apps.UsuarioConfig',
     'InicioSesion.apps.IniciosesionConfig',
     'django.contrib.admin',
+    'widget_tweaks',
+    'datetimewidget',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',

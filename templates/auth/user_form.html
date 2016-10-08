@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "principal/principal.html" %}
 
-{% block content %}
+{% block subcontent %}
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}

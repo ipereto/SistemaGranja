@@ -20,7 +20,7 @@ class AdminGranja(admin.ModelAdmin):
     'humedad_relativa',
     'temp_prom',)
     list_filter = ('nombre',)
-    def get_form(self, request, obj, **kwargs):
-        form = super(AdminGranja, self).get_form(request, obj, **kwargs)
-        form.base_fields['id_municipio'].queryset = obj.Departamento.all()
-        return form
+    # def get_form(self, request, obj, **kwargs):
+    #     form = super(AdminGranja, self).get_form(request, obj, **kwargs)
+    #     form.base_fields['id_municipio'].queryset = obj.Departamento.all()
+    #     return form

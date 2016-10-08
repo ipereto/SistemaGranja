@@ -1,16 +1,19 @@
 # -*- coding: utf-8 -*-
 from django import forms
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.auth.forms import UserCreationForm
-from Reproduccion
+from .models import Reproduccion
+from datetimewidget.widgets import DateTimeWidget
 
-class CreacionUsuarioForm(UserCreationForm):
+class ReproduccionForm(forms.ModelForm):
+    fechaPosibleParto = forms.TextInput()
     class Meta:
         model = Reproduccion
-        fields = ('id_bovino', 'id_toro', 'id_servicio', 'id_cria',
+
+        fields = ['id_bovino', 'id_toro', 'id_servicio', 'id_cria',
                   'id_semen_toro', 'fecha_servicio', 'proximoCelo',
                   'fechaPosibleParto','cantCelosPosParto',
-                  'fechaSecado','id_estado')
+                  'fechaSecado','id_estado']
+
         labels = {
             'id_bovino': _(u'*Bovino'),
             'id_toro': _(u'Toro'),
