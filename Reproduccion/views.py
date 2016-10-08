@@ -40,9 +40,9 @@ class CrearReproduccion(LoginRequiredMixin, CreateView):
               'fechaPosibleParto','cantCelosPosParto',
               'fechaSecado','id_estado']
 
-class ListarReproducciones(LoginRequiredMixin, ListView):
+class ListarReproducciones(LoginRequiredMixin,ListView):
     model = Reproduccion
-    template_name = 'Reproduccion/reproduccion_list.html'
+    #template_name = 'Reproduccion/reproduccion_list.html'
     # paginate_by = 5
 
 class EditarReproduccion(LoginRequiredMixin, UpdateView):

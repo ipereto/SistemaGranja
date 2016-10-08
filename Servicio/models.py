@@ -8,7 +8,10 @@ class Servicio(models.Model):
     nombre = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.id_servicio
+        return self.nombre
 
     class Meta:
         ordering = ('id_servicio', )
+
+    def __unicode__(self):
+        return self.nombre
