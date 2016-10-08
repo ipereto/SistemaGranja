@@ -1,0 +1,14 @@
+{% extends 'principal/principal.html' %}
+{% block subcontent %}
+<ul>
+    {% for reproduccion in object_list %}
+        <li>
+            <p>{{ reproduccion.name }}</p>
+            <p>
+                <a href="{% url "reproducciones:buscar" reproduccion.pk %}">Ver</a> |
+                <a href="{% url "reproducciones:editar" reproduccion.pk %}">Editar</a> |
+            </p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
