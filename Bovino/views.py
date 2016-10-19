@@ -40,38 +40,43 @@ from django.core.urlresolvers import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.views.generic import TemplateView
-from django.contrib.auth.models import User
+from .models import Bovino
 from django.contrib.auth.decorators import login_required
-from .forms import CreacionUsuarioForm
+from .forms import BovinoForm
 from django.contrib.auth.models import Group
 from InicioSesion.mixins import JSONResponseMixin
 from InicioSesion.mixins import LoginRequiredMixin
 
 
-class  BovinoView(LoginRequiredMixin, TemplateView):
-    template_name = 'bovino/bovino.html'
-    def get_context_data(self, **kwargs):
-        context = super(bovinoView, self).get_context_data(**kwargs)
-        context.update({'form': CreacionbovinoForm()})
-        return context
+# class  BovinoView(LoginRequiredMixin, TemplateView):
+#     template_name = 'bovino/bovino.html'
+#     def get_context_data(self, **kwargs):
+#         context = super(bovinoView, self).get_context_data(**kwargs)
+#         context.update({'form': BovinoForm()})
+#         return context
 
-class Crearbovino(LoginRequiredMixin, CreateView):
-    model =Bovino
+class CrearBovino(LoginRequiredMixin, CreateView):
+    model = Bovino
     success_url = reverse_lazy('bovino:listar')
-    fields = ['id_bovino','raza','padre','madre','granja','parto','procedencia','estado','etapa','sexo','nombre','fecha nacimiento','peso nacimiento','fecha destete','edad primer parto','fecha Entrada','fechaSalida','motivo salida''fecha primer servicio']
+    fields = ['id_bovino','id_raza',
+    'id_padre','id_madre','id_granja','id_parto',
+    'id_procedencia','id_estado','id_etapa',
+    'id_sexo','fecha_nacimiento','peso_nacimiento',
+    'fecha_destete','edad_primer_parto','fechaEntrada',
+    'fechaSalida','motivo_salida','fecha_primer_servicio']
 
-class Listarbovino(LoginRequiredMixin, ListView):
+class ListarBovino(LoginRequiredMixin, ListView):
     model = Bovino
     # template_name = 'user_list.html'
     # paginate_by = 5
 
-class Editarbovino(LoginRequiredMixin, UpdateView):
+class EditarBovino(LoginRequiredMixin, UpdateView):
     model = Bovino
-    form_class = CreacionbovinoForm
+    form_class = BovinoForm
     #success_url =
 
-class Buscarespacio(LoginRequiredMixin, JSONResponseMixin, DetailView):
-    model = Espacio
+class BuscarBovino(LoginRequiredMixin, JSONResponseMixin, DetailView):
+    model = Bovino
     # slug_field = 'username'
     # slug_url_kwarg = 'username'
     # def get(self, request, *args, **kwargs):

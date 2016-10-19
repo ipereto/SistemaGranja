@@ -1,0 +1,241 @@
+{% extends 'principal/principal.html'%}
+{%block titulo_modulo %}
+Bovino
+{% endblock %}
+{% block subcontent %}
+{% load widget_tweaks %}
+{% load staticfiles %}
+<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          Formulario de Bovinos
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                  <form role="form" method="post" action="" onsubmit="return validateForm()">
+                                  {% csrf_token %}
+                                  {{ form.management_form }}
+                                  {% for field in form %}
+                                    {% if field.name == "id_bovino" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "nombre" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_raza" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_padre" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_madre" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_granja" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_parto" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_procedencia" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_estado" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_etapa" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "id_sexo" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "fecha_nacimiento" %}
+                                                <div class="form-group">
+                                                  <label>{{field.label_tag}}</label>
+                                                    <div class='input-group date' id='datetimepicker1'>
+                                                        <input type='text' class="form-control" id="id_fecha_servicio" name="fecha_servicio"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{field.errors}}
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                  $('#datetimepicker1').datetimepicker({
+                                                      locale: 'es'
+                                                  });
+                                                });
+                                            </script>
+                                    {% endif %}
+                                    {% if field.name == "peso_nacimiento" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "fecha_destete" %}
+                                                <div class="form-group">
+                                                  <label>{{field.label_tag}}</label>
+                                                    <div class='input-group date' id='datetimepicker2'>
+                                                        <input type='text' class="form-control" id="id_fecha_servicio" name="fecha_servicio"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{field.errors}}
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                  $('#datetimepicker2').datetimepicker({
+                                                      locale: 'es'
+                                                  });
+                                                });
+                                            </script>
+                                    {% endif %}
+                                    {% if field.name == "edad_primer_parto" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "fechaEntrada" %}
+                                                <div class="form-group">
+                                                  <label>{{field.label_tag}}</label>
+                                                    <div class='input-group date' id='datetimepicker3'>
+                                                        <input type='text' class="form-control" id="id_fecha_servicio" name="fecha_servicio"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{field.errors}}
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                  $('#datetimepicker3').datetimepicker({
+                                                      locale: 'es'
+                                                  });
+                                                });
+                                            </script>
+                                    {% endif %}
+                                    {% if field.name == "fechaSalida" %}
+                                                <div class="form-group">
+                                                  <label>{{field.label_tag}}</label>
+                                                    <div class='input-group date' id='datetimepicker4'>
+                                                        <input type='text' class="form-control" id="id_fecha_servicio" name="fecha_servicio"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{field.errors}}
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                  $('#datetimepicker4').datetimepicker({
+                                                      locale: 'es'
+                                                  });
+                                                });
+                                            </script>
+                                    {% endif %}
+                                    {% if field.name == "motivo_salida" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "fechaSecado" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "cantCelosPosParto" %}
+                                        <div class="form-group">
+                                            <label>{{field.label_tag}}</label>
+                                            {{field|add_class:"form-control"}}
+                                            {{field.errors}}
+                                        </div>
+                                    {% endif %}
+                                    {% if field.name == "fecha_primer_servicio" %}
+                                                <div class="form-group">
+                                                  <label>{{field.label_tag}}</label>
+                                                    <div class='input-group date' id='datetimepicker5'>
+                                                        <input type='text' class="form-control" id="id_fecha_servicio" name="fecha_servicio"/>
+                                                        <span class="input-group-addon">
+                                                            <span class="glyphicon glyphicon-calendar"></span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            {{field.errors}}
+                                            <script type="text/javascript">
+                                                $(function () {
+                                                  $('#datetimepicker5').datetimepicker({
+                                                      locale: 'es'
+                                                  });
+                                                });
+                                            </script>
+                                    {% endif %}
+                                    {% endfor %}
+                                    <button type="submit" class="btn btn-lg btn-success btn-block">Guardar</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- /.row (nested) -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+{% endblock %}

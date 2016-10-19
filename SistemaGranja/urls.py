@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^principal/granja/', include('Granja.urls', namespace='granjas')),
     url(r'^principal/usuario/', include('Usuario.urls', namespace='usuarios')),
     url(r'^principal/reproduccion/', include('Reproduccion.urls', namespace='reproducciones')),
+    url(r'^principal/bovino/', include('Bovino.urls', namespace='bovinos')),
     url(r'^', include('InicioSesion.urls',namespace='inicio')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
